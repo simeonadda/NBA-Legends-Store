@@ -23,8 +23,20 @@ mongoose.connect(mongoURI, {
 db.on('error', (err) => {console.log(err.message + ' is MongoDB not running?')})
 db.on('connected', () => {console.log('Mongo connected: ', mongoURI)})
 db.on('disconnected', () => {console.log('Mongo disconnected')})
-// CONTROLLERS
 
+// MIDDLEWARES
+app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method'))
+
+// SESSIONS MAYBE?
+
+// CONTROLLERS
+const playerController = require('./controllers/playerController')
+app.use('/players', playerController)
+
+
+
+// LISTEN
 app.listen(PORT, () => {
   console.log(`NBA Legends Store App server is 🏃🏾 on PORT ${PORT}`);
 })

@@ -8,6 +8,8 @@ const Player = require('../models/player')
 router.get('/', (req, res) => {
   Player.find({}, (error, allPlayers) => {
     console.log(allPlayers);
-    res.send(allPlayers)
+    res.send('This is where all my ⛹🏾‍♂️ players would be!')
   })
 })
+
+module.exports = router
