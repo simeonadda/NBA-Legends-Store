@@ -6,7 +6,23 @@ require('dotenv').config()
 const PORT = 3000
 
 // MODELS
+const Player = require('./models/player')
 
+// DATABASES
+const mongoURI = 'mongodb://localhost:27017/playercrud'
+
+const db = mongoose.connection
+
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, () => {
+  console.log('Connection with MongoDB is established!');
+})
+
+db.on('error', (err) => {console.log(err.message + ' is MongoDB not running?')})
+db.on('connected', () => {console.log('Mongo connected: ', mongoURI)})
+db.on('disconnected', () => {console.log('Mongo disconnected')})
 // CONTROLLERS
 
 app.listen(PORT, () => {
