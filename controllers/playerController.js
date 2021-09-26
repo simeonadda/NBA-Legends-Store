@@ -78,15 +78,19 @@ router.get('/seed', (req, res) => {
 router.get('/:id', (req, res) => {
   Player.findById(req.params.id, (error, foundPlayer) => {
     console.log(foundPlayer);
-    res.render('show.ejs')
+    res.render('show.ejs', {players: foundPlayer})
   })
 })
 
 // DELETE ROUTE -- FOR DELETING CARDS DURING TESTING
 router.delete('/:id', (req, res) => {
   Player.findByIdAndDelete(req.params.id, (error, deletedPlayer) => {
-    console.log(deletedPlayer);
-    res.redirect('/players')
+    if (error) {
+      console.log(error);
+      res.send(error)
+    } else {
+      res.redirect('/players')
+    }
   })
 })
 
