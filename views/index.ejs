@@ -1,0 +1,13 @@
+<%- include('./partials/header.ejs') %>
+  <h2>'This is where all my ⛹🏾‍♂️ players would be!'</h2>
+
+  <ul>
+    <% players.forEach((player) => { %>
+    <li>
+      <a href="/players/<%= player.id %>"><%= player.first_name %> <%= player.last_name %></a>
+    </li>
+    <br>
+    <% }) %>
+  </ul>
+  <a href="/players/new">Buy Card Pack</a>
+<%- include('./partials/footer.ejs') %>

@@ -13,10 +13,30 @@ const playerSchema = new Schema({
     city: {type: String, required: true},
     conference: {type: String, required: true},
     division: {type: String, required: true},
-    full_name: {type: String, required: true},
+    full_name: {type: String, required: true}
   }
 })
 
 const Player = model('Player', playerSchema)
 
 module.exports = Player
+
+//===============================
+//  UPLOADING JSON DATA EXAMPLE
+//===============================
+// const data = { username: 'example' };
+//
+// fetch('https://example.com/profile', {
+//   method: 'POST', // or 'PUT'
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify(data),
+// })
+// .then(response => response.json())
+// .then(data => {
+//   console.log('Success:', data);
+// })
+// .catch((error) => {
+//   console.error('Error:', error);
+// });
