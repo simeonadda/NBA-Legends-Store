@@ -3,6 +3,8 @@ const router = express.Router()
 
 // IMPORT PLAYER MODEL
 const Player = require('../models/player')
+// IMPORT FAVORITES MODEL
+// const Faves = require('../models/faves')
 
 // INDEX FOR ALL PLAYER COLLECTION -- LIST ALL PLAYERS YOU HAVE
 router.get('/', (req, res) => {
@@ -72,6 +74,12 @@ router.get('/seed', (req, res) => {
       res.redirect('/players')
     }
   })
+})
+
+// FAVORITES ROUTE -- FOR DISPLAYING YOUR TOP OR FAVORITE CARDS
+router.get('/faves', (req, res) => {
+  // Need to display cards from a favorite players array
+  res.render('favorites.ejs')
 })
 
 // SHOW ROUTE -- FOR DISPLAYING AN INDIVIDUAL PLAYER
