@@ -9,6 +9,7 @@ const PORT = 3000
 const Player = require('./models/player')
 
 // DATABASES
+const MONGODB_URI = process.env.MONGODB_URI
 const mongoURI = 'mongodb://localhost:27017/playercrud'
 
 const db = mongoose.connection

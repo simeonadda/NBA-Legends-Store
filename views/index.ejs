@@ -2,14 +2,32 @@
   <a href="/players/new">Buy Card Pack</a>
   <h2>'This is where all my ⛹🏾‍♂️ players would be!'</h2>
 
-  <ul>
-    <% players.forEach((player) => { %>
-    <li>
-      <a href="/players/<%= player.id %>"><%= player.first_name %> <%= player.last_name %></a>
-    </li>
-    <br>
-    <% }) %>
-  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card-deck">
+          <% players.forEach((player) => { %>
+          <div class="card">
+            <img class="card-img-top" src="" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="/players/<%= player.id %>"><%= player.first_name %> <%= player.last_name %></a>
+              </h5>
+              <p class="card-text">
+                Team: <%= player.team.full_name %><br>
+                Position: <%= player.position %><br>
+                Height: <%= player.height_feet %>' <%= player.height_inches %>"<br>
+                Weight: <%= player.weight_pounds %> lbs
+              </p>
+            </div>
+            <br>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <a href="/players/faves">View Favorites</a>
 
 <%- include('./partials/footer.ejs') %>
