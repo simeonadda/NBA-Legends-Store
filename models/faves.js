@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const {Schema, model} = mongoose
 
-const playerSchema = new Schema({
+const favePlayerSchema = new Schema({
   first_name: {type: String, required: true},
   last_name: {type: String, required: true},
   position: {type: String, required: true},
@@ -17,6 +17,6 @@ const playerSchema = new Schema({
   }
 })
 
-const Faves = model('favePlayer', playerSchema)
+const Faves = model('favePlayer', favePlayerSchema)
 
 module.exports = Faves

@@ -1,11 +1,41 @@
 <%- include('./partials/header.ejs') %>
-  <h3>This is the <%= players.first_name %> <%=players.last_name %> Show Page ⛹🏾‍♂️</h3>
-  <form class="" action="/faves" method="POST">
-    <input type="submit" value="Add to Favorites">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card-deck justify-content-center">
+          <div class="card bg-warning border-dark mb-3" style="max-width: 36rem">
+            <img class="card-img-top" style="" src="https://www.freepnglogos.com/uploads/nba-logo-png/nba-debate-club-milken-hottest-new-club-the-roar-25.png" alt="">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= players.first_name %> <%= players.last_name %>
+              </h5>
+              <p class="card-text">
+                Team: <%= players.team.full_name %><br>
+                Position: <%= players.position %><br>
+                Height: <%= players.height_feet %>' <%= players.height_inches %>"<br>
+                Weight: <%= players.weight_pounds %> lbs <br>
+                City: <%= players.team.city %><br>
+                Abbreviation: <%= players.team.abbreviation %><br>
+                Conference: <%= players.team.conference %><br>
+                Division: <%= players.team.division %><br>
+              </p>
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form action="/faves" method="POST">
+    <input class="btn btn-light" type="submit" value="Add to Favorites">
   </form><br>
   <form action="/players/<%= players.id %>?_method=DELETE" method="POST">
-    <input type="submit" value="Remove <%= players.first_name %> <%=players.last_name %>">
+    <input class="btn btn-light" type="submit" value="Remove <%= players.first_name %> <%=players.last_name %>">
   </form>
   <br>
-  <a href="/players">Back to Players</a>
+
+  <a class="btn btn-light" href="/players">Back To Players</a>
+  <br>
+  <br>
 <%- include('./partials/footer.ejs') %>
