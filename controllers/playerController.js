@@ -15,8 +15,9 @@ router.get('/', (req, res) => {
 })
 
 // NEW ROUTE -- SELECT A RANDOM PLAYER TO ADD
-router.get('/new', (req, res) => {
-  res.render('new.ejs')
+router.get('/buy', (req, res) => {
+  console.log(req.body);
+  res.send(req.body)
 })
 
 // SEED ROUTE -- FOR TESTING ADDING A PLAYER OR SEEDING THE DATABASE TO START
@@ -55,7 +56,7 @@ router.get('/seed', (req, res) => {
     {
       first_name: 'Lebron',
       last_name: 'James',
-      position: 'G',
+      position: 'F',
       height_feet: 6,
       height_inches: 9,
       weight_pounds: 250,
@@ -86,6 +87,8 @@ router.get('/faves', (req, res) => {
 
 // POST ROUTE -- TO ADD FAVORITES PAGE
 router.post('/faves', (req, res) => {
+  let favePlayer = Object.assign({}, req.params.id)
+  console.log(favePlayer);
   Faves.create(req.body, (error, favePlayer) => {
     if (err) {
       console.log(err);

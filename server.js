@@ -14,6 +14,7 @@ const mongoURI = 'mongodb://localhost:27017/playercrud'
 
 const db = mongoose.connection
 
+
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -28,6 +29,7 @@ db.on('disconnected', () => {console.log('Mongo disconnected')})
 // MIDDLEWARES
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
+app.use(express.json())
 
 // SESSIONS MAYBE?
 
