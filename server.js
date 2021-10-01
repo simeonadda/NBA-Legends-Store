@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
+const session = require('express-session')
 require('dotenv').config()
 const PORT = 3000
 
@@ -32,6 +33,28 @@ app.use(methodOverride('_method'))
 app.use(express.json())
 
 // SESSIONS MAYBE?
+// app.use(session({
+//   secret: process.env.SECRET,
+//   resave: false,
+//   saveUninitialized: false
+// }))
+
+// HOME PAGE -- TO LOGIN OR SIGN UP
+app.get('/', (req, res) => {
+  res.render('home.ejs')
+})
+
+// LOGIN PAGE
+app.get('/login', (req, res) => {
+  res.render('login.ejs')
+})
+
+app.post('/login', (req, res) => {
+  let username = req.body.username;
+  let password = req.body.password;
+  res.send(`Username: ${username} Password ${password}`)
+})
+
 
 // CONTROLLERS
 const playerController = require('./controllers/playerController')
