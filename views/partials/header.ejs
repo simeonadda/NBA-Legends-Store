@@ -16,14 +16,13 @@
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
               <h4 class="text-white">About</h4>
-              <p class="text-muted">This is a place to enjoy the NBA players of yesteryear. If you hate flopping, enjoy the handcheck and think that Craig Elo would was the best option to guard Jordan, this is the place for you.</p>
+              <p class="text-muted">This is a place to enjoy the NBA players of yesteryear. If you hate flopping, enjoy the handcheck and think that Craig Elo was the best option to guard Jordan on that final play, this is the place for you.</p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
               <ul class="bg-dark border-light mb-3 text-white navbar nav-fill list-unstyled justify-content-around">
                 <% if (currentUser) { %>
                   <li class="text-light">Hi <%= currentUser.username %></li>
                   <li>
-                  <li><a class="text-warning" href="/players">Home</a></li>
                   <li><a class="text-warning" href="/players/faves">Favorites</a></li>
                   <li><a class="text-warning" href="/players/new">Buy</a></li>
                     <form action="/sessions?_method=DELETE" method="POST">
@@ -42,11 +41,10 @@
       <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
           <a href="/players" class="navbar-brand d-flex align-items-center">
-            <img class="float-left" width="35" height="35" src="https://cdn2.iconfinder.com/data/icons/activity-5/50/1F3C0-basketball-512.png" alt="basketball">
-            <strong>Legends</strong>
+            <strong>Home</strong>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <img class="float-left" width="35" height="35" src="https://cdn2.iconfinder.com/data/icons/activity-5/50/1F3C0-basketball-512.png" alt="basketball">
           </button>
         </div>
       </div>

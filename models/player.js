@@ -4,7 +4,7 @@ const {Schema, model} = mongoose
 const playerSchema = new Schema({
   first_name: {type: String, required: true},
   last_name: {type: String, required: true},
-  position: {type: String, required: true},
+  position: String,
   height_feet: Number,
   height_inches: Number,
   weight_pounds: Number,
@@ -14,7 +14,8 @@ const playerSchema = new Schema({
     conference: {type: String, required: true},
     division: {type: String, required: true},
     full_name: {type: String, required: true}
-  }
+  },
+  img: String
 })
 
 const Player = model('Player', playerSchema)

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 const {Schema, model} = mongoose
 
-const favePlayerSchema = new Schema({
+const playerSchema = new Schema({
   first_name: {type: String, required: true},
   last_name: {type: String, required: true},
-  position: {type: String, required: true},
+  position: String,
   height_feet: Number,
   height_inches: Number,
   weight_pounds: Number,
@@ -14,9 +14,10 @@ const favePlayerSchema = new Schema({
     conference: {type: String, required: true},
     division: {type: String, required: true},
     full_name: {type: String, required: true}
-  }
+  },
+  img: String
 })
 
-const Faves = model('favePlayer', favePlayerSchema)
+const Faves = model('Faves', playerSchema)
 
 module.exports = Faves

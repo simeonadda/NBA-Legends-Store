@@ -4,13 +4,13 @@
     <div class="row">
       <div class="col">
         <div class="card-deck justify-content-center">
-          <div class="card bg-white0 border-danger mb-3" style="max-width: 36rem">
-            <img class="card-img-top bg-dark" style="" src="https://www.freepnglogos.com/uploads/nba-logo-png/nba-debate-club-milken-hottest-new-club-the-roar-25.png" alt="">
-            <div class="card-body">
-              <h5 class="card-title">
+          <div class="card bg-dark border-danger mb-3" style="max-width: 30rem">
+            <img class="card-img-top" style="" src="<%= players.img %>" alt="">
+            <div class="card-body bg-dark text-light">
+              <h4 class="card-title text-center">
                 <%= players.first_name %> <%= players.last_name %>
-              </h5>
-              <p class="card-text">
+              </h4>
+              <p class="card-text text-center">
                 Team: <%= players.team.full_name %><br>
                 Position: <%= players.position %><br>
                 Height: <%= players.height_feet %>' <%= players.height_inches %>"<br>
@@ -26,12 +26,13 @@
         </div>
       </div>
     </div>
-    <form action="/faves" method="POST">
-      <input class="btn btn-dark" type="submit" value="Add to Favorites">
-    </form><br>
+    <a href="/players/<%= players.id %>/faves">
+      <input class="btn btn-success" type="submit" value="Add to Favorites">
+    </a><br><br>
     <form action="/players/<%= players.id %>?_method=DELETE" method="POST">
-      <input class="btn btn-dark" type="submit" value="Remove <%= players.first_name %> <%=players.last_name %>">
+      <input class="btn btn-danger" type="submit" value="Remove <%= players.first_name %> <%=players.last_name %>">
     </form><br>
-    <a class="btn btn-dark" href="/players">Back To Players</a>
+    <a class="btn btn-light" href="/players">Back To Players</a>
   </div>
+  <br><br><br><br>
 <%- include('./partials/footer.ejs') %>

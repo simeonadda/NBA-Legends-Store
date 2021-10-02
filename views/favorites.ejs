@@ -1,7 +1,84 @@
-<%- include('./partials/header.ejs') %>
-  <h2>'This the page for my favorite ⛹🏾‍♂️ players!</h2>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <title>NBA Legends Store</title>
+  </head>
+  <body class="bg-success text-dark">
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">This is a place to enjoy the NBA players of yesteryear. If you hate flopping, enjoy the handcheck and think that Craig Elo was the best option to guard Jordan on that final play, this is the place for you.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <ul class="bg-dark border-light mb-3 text-white navbar nav-fill list-unstyled justify-content-around">
+                <% if (currentUser) { %>
+                  <li class="text-light">Hi <%= currentUser.username %></li>
+                  <li>
+                  <li><a class="text-warning" href="/players/faves">Favorites</a></li>
+                  <li><a class="text-warning" href="/players/new">Buy</a></li>
+                    <form action="/sessions?_method=DELETE" method="POST">
+                      <input class="btn btn-warning" type="submit" value="Log Out"/>
+                    </form>
+                  <% } else { %>
+                  <li><a class="btn btn-light" href="/users/new">Sign Up</a></li>
+                  <li><a class="btn btn-light" href="/login">Log In</a></li>
+                  <% } %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="/players" class="navbar-brand d-flex align-items-center">
+            <strong>Home</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <img class="float-left" width="35" height="35" src="https://cdn2.iconfinder.com/data/icons/activity-5/50/1F3C0-basketball-512.png" alt="basketball">
+          </button>
+        </div>
+      </div>
+    </header>
+<section class="jumbotron text-center bg-light">
+  <div class="container">
+    <h1 class="jumbotron-heading">Welcome <%= currentUser.username %>, to your favorites page!</h1>
+    <p class="lead text-muted">This is where you can view your favorite cards and later be able to rank favorites.</p>
+  </div>
+</section>
+<br>
+  <div class="container">
+    <div class="row">
+      <div class="">
+        <div class="card-deck">
+          <% players.forEach((player) => { %>
+          <div class="card bg-white border-danger mb-3" style="min-width: 18rem">
+            <img class="card-img-top bg-dark" style="" src=<% players.img %> alt="">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a class="text-dark font-weight-bold"href="/players/<%= players.id %>"><%= players.first_name %> <%= player.last_name %></a>
+              </h5>
+              <p class="card-text">
+                Team: <%= players.team.full_name %><br>
+                Position: <%= players.position %><br>
+                Height: <%= players.height_feet %>' <%= players.height_inches %>"<br>
+                Weight: <%= players.weight_pounds %> lbs
+              </p>
+            </div>
+            <br>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
   <br>
-  <a href="/players">Back to Players</a>
-
 <%- include('./partials/footer.ejs') %>

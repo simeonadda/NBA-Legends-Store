@@ -17,7 +17,7 @@ const mongoURI = 'mongodb://localhost:27017/playercrud'
 const db = mongoose.connection
 
 
-mongoose.connect(mongoURI, {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }, () => {

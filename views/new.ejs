@@ -1,3 +1,47 @@
 <%- include('./partials/header.ejs') %>
-  <h2>'This is where I add new ⛹🏾‍♂️ players!</h2>
+<section class="jumbotron text-center bg-light">
+  <div class="container">
+    <h1 class="jumbotron-heading">
+      <% if (currentUser) { %>
+      Welcome to the NBA Card Store <%= currentUser.username %>!
+    </h1>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card-deck justify-content-center">
+            <div class="card bg-white0 border-danger mb-3" style="width: 20rem; height: 35rem;">
+              <img class="card-img-top bg-dark" style="" src=<% player.img %> alt="">
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  <%= players.first_name %> <%= players.last_name %>
+                </h5>
+                <p class="card-text text-center">
+                  Team: <%= players.team.full_name %><br>
+                  Position: <%= players.position %><br>
+                  Height: <%= players.height_feet %>' <%= players.height_inches %>"<br>
+                  Weight: <%= players.weight_pounds %> lbs <br>
+                  City: <%= players.team.city %><br>
+                  Abbreviation: <%= players.team.abbreviation %><br>
+                  Conference: <%= players.team.conference %><br>
+                  Division: <%= players.team.division %><br>
+                </p>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    <p class="lead text-muted">A random card will be made available for you to purchase.</p>
+    <p>
+      <a class="btn btn-secondary my-2" href="/players/buy">Buy Card</a>
+    </p>
+  </div>
+</div>
+</section>
+<% } else { %>
+  <h2>You've been automatically signed out.</h2>
+  <a class="btn btn-danger" href="/">Sign Back In</a
+    <br>
+<% } %>
+<br>
 <%- include('./partials/footer.ejs') %>
