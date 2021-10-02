@@ -10,16 +10,21 @@ const Faves = require('../models/faves')
 router.get('/', (req, res) => {
   Player.find({}, (error, allPlayers) => {
     console.log(allPlayers);
-    res.render('index.ejs', {players: allPlayers})
+    res.render('index.ejs', {
+      players: allPlayers,
+      currentUser: req.session.currentUser
+    })
   })
 })
 
 
 
-// NEW ROUTE -- SELECT A RANDOM PLAYER TO ADD
+// BUY (NEW) ROUTE -- SELECT A RANDOM PLAYER TO ADD
 router.get('/buy', (req, res) => {
   console.log(req.body);
   res.send(req.body)
+  // ADD BELOW TO OBJECT ONCE SWITCHED TO res.render()
+  // currentUser: req.session.currentUser
 })
 
 // SEED ROUTE -- FOR TESTING ADDING A PLAYER OR SEEDING THE DATABASE TO START
@@ -83,7 +88,10 @@ router.get('/seed', (req, res) => {
 router.get('/faves', (req, res) => {
   // Need to display cards from a favorite players array
   Faves.find({}, (error, favePlayers) => {
-    res.render('favorites.ejs', {players: favePlayers})
+    res.render('favorites.ejs', {
+      players: favePlayers,
+      currentUser: req.session.currentUser
+    })
   })
 })
 
@@ -105,7 +113,10 @@ router.post('/faves', (req, res) => {
 router.get('/:id', (req, res) => {
   Player.findById(req.params.id, (error, foundPlayer) => {
     console.log(foundPlayer);
-    res.render('show.ejs', {players: foundPlayer})
+    res.render('show.ejs', {
+      players: foundPlayer,
+      currentUser: req.session.currentUser
+    })
   })
 })
 

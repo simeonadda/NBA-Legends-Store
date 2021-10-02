@@ -34,27 +34,31 @@ app.use(methodOverride('_method'))
 app.use(express.json())
 
 // SESSIONS MAYBE?
-// app.use(session({
-//   secret: process.env.SECRET,
-//   resave: false,
-//   saveUninitialized: false
-// }))
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
 
 // HOME PAGE -- TO LOGIN OR SIGN UP
 app.get('/', (req, res) => {
-  res.render('home.ejs')
+  res.render('home.ejs', {
+    currentUser: req.session.currentUser
+  })
 })
 
 // LOGIN PAGE
 app.get('/login', (req, res) => {
-  res.render('login.ejs')
+  res.render('login.ejs', {
+    currentUser: req.session.currentUser
+  })
 })
 
-app.post('/login', (req, res) => {
-  let username = req.body.username;
-  let password = req.body.password;
-  res.send(`Username: ${username} Password ${password}`)
-})
+// app.post('/', (req, res) => {
+//   let username = req.body.username;
+//   let password = req.body.password;
+//   res.redirect('/sessions/new')
+// })
 
 
 // CONTROLLERS
@@ -63,6 +67,9 @@ app.use('/players', playerController)
 
 const userController = require('./controllers/users_controller.js')
 app.use('/users', userController)
+
+const sessionsController = require('./controllers/sessions_controller.js')
+app.use('/sessions', sessionsController)
 
 
 // LISTEN
