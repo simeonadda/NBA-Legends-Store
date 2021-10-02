@@ -3,6 +3,7 @@ const app = express()
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const session = require('express-session')
+const bcrypt = require('bcrypt')
 require('dotenv').config()
 const PORT = 3000
 
@@ -60,6 +61,8 @@ app.post('/login', (req, res) => {
 const playerController = require('./controllers/playerController')
 app.use('/players', playerController)
 
+const userController = require('./controllers/users_controller.js')
+app.use('/users', userController)
 
 
 // LISTEN

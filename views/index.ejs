@@ -15,11 +15,11 @@
       <div class="">
         <div class="card-deck">
           <% players.forEach((player) => { %>
-          <div class="card bg-warning border-dark mb-3" style="min-width: 18rem">
-            <img class="card-img-top" style="" src="https://www.freepnglogos.com/uploads/nba-logo-png/nba-debate-club-milken-hottest-new-club-the-roar-25.png" alt="">
+          <div class="card bg-white border-warning mb-3" style="min-width: 18rem">
+            <img class="card-img-top bg-dark" style="" src="https://www.freepnglogos.com/uploads/nba-logo-png/nba-debate-club-milken-hottest-new-club-the-roar-25.png" alt="">
             <div class="card-body">
               <h5 class="card-title">
-                <a class="text-dark"href="/players/<%= player.id %>"><%= player.first_name %> <%= player.last_name %></a>
+                <a class="text-dark font-weight-bold"href="/players/<%= player.id %>"><%= player.first_name %> <%= player.last_name %></a>
               </h5>
               <p class="card-text">
                 Team: <%= player.team.full_name %><br>
