@@ -23,7 +23,7 @@
                 <% if (currentUser) { %>
                   <li class="text-light">Hi <%= currentUser.username %></li>
                   <li>
-                  <li><a class="text-warning" href="/players/faves">Favorites</a></li>
+                  <!-- <li><a class="text-warning" href="/players/faves">Favorites</a></li> -->
                   <li><a class="text-warning" href="/players/new">Buy</a></li>
                     <form action="/sessions?_method=DELETE" method="POST">
                       <input class="btn btn-warning" type="submit" value="Log Out"/>
