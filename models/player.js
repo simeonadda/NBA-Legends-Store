@@ -15,7 +15,8 @@ const playerSchema = new Schema({
     division: {type: String, required: true},
     full_name: {type: String, required: true}
   },
-  img: String
+  img: String,
+  favorite: {type: Boolean, default: false}
 })
 
 const Player = model('Player', playerSchema)

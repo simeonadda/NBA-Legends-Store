@@ -5,20 +5,20 @@
       <div class="col">
         <div class="card-deck justify-content-center">
           <div class="card bg-white0 border-danger mb-3" style="max-width: 36rem">
-            <img class="card-img-top bg-dark" style="" src="https://www.freepnglogos.com/uploads/nba-logo-png/nba-debate-club-milken-hottest-new-club-the-roar-25.png" alt="">
+            <img class="card-img-top" style="" src="<% players.img %>" alt="">
             <div class="card-body">
               <h5 class="card-title text-center">
-                <%= favePlayer.first_name %> <%= favePlayer.last_name %>
+                <%= players.first_name %> <%= players.last_name %>
               </h5>
               <p class="card-text text-center">
-                Team: <%= favePlayer.team.full_name %><br>
-                Position: <%= favePlayer.position %><br>
-                Height: <%= favePlayer.height_feet %>' <%= favePlayer.height_inches %>"<br>
-                Weight: <%= favePlayer.weight_pounds %> lbs <br>
-                City: <%= favePlayer.team.city %><br>
-                Abbreviation: <%= favePlayer.team.abbreviation %><br>
-                Conference: <%= favePlayer.team.conference %><br>
-                Division: <%= favePlayer.team.division %><br>
+                Team: <%= players.team.full_name %><br>
+                Position: <%= players.position %><br>
+                Height: <%= players.height_feet %>' <%= players.height_inches %>"<br>
+                Weight: <%= players.weight_pounds %> lbs <br>
+                City: <%= players.team.city %><br>
+                Abbreviation: <%= players.team.abbreviation %><br>
+                Conference: <%= players.team.conference %><br>
+                Division: <%= players.team.division %><br>
               </p>
             </div>
             <br>
@@ -26,8 +26,18 @@
         </div>
       </div>
     </div>
-    <form class="text-center" action="/players/faves/<%= favePlayer.id %>?_method=PUT" method="POST">
-      <input class="btn btn-success" type="submit" value="Confirm Favorite">
+    <form class="text-center" action="/players/<%= players.id %>?_method=PUT" method="POST">
+      <input
+      class=""
+      type="checkbox"
+      name="favorite"
+      value="Confirm Favorite"
+      <% if (players.favorite) { %>
+        checked
+      <% } %>
+      <br>
+      <input class="btn btn-success" type="submit" name="" value="Add To Favorite">
+      <a class="btn btn-light "href="/players/<%= players.id %>">Cancel</a>
     </form><br>
 
 <%- include('./partials/footer.ejs') %>

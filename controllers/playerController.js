@@ -313,30 +313,36 @@ router.get('/faves', (req, res) => {
 // EDIT ROUTE -- TO ADD FAVORITES PAGE
 router.get('/:id/faves', (req, res) => {
   Player.findById(req.params.id, (error, favePlayer) => {
-    console.log(favePlayer);
-    Faves.create(
-      {favePlayer}
-    , (err, data) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(Faves);
-        res.redirect('/players')
-      }
-    })
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(Faves);
+      res.render('confirm_fave.ejs', {
+        players: favePlayer,
+        currentUser: req.session.currentUser
+      })
+    }
   })
 })
 
-// router.put('/faves/:id', (req, res) => {
-//   Player.findById(req.params.id, req.body, (error, favePlayer) => {
-//     Faves.create(favePlayer)
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       res.redirect('/faves')
-//     }
-//   })
-// })
+router.put('/:id', (req, res) => {
+  req.body.favorite = req.body.favorite === 'on'
+  Player.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+    },
+    (error, updatedPlayer) => {
+      if (error) {
+        console.log(error);
+        res.send(error)
+      } else {
+        res.redirect('/players')
+      }
+    }
+  )
+})
 
 // SHOW ROUTE -- FOR DISPLAYING AN INDIVIDUAL PLAYER
 router.get('/:id', (req, res) => {
@@ -346,6 +352,25 @@ router.get('/:id', (req, res) => {
       currentUser: req.session.currentUser
     })
   })
+})
+
+// POST ROUTE -- TO DISPLAY YOUR FAVORITES
+router.post('/faves', (req, res) => {
+  if (req.body.favorite === "on") {
+    req.body.favorite = true
+    Player.create(req.body, (error, favePlayer) => {
+      if (error) {
+        console.log(error);
+        res.send(error)
+      } else {
+        console.log(favePlayer);
+        res.redirect('/players')
+      }
+    })
+  } else {
+    req.body.favorite = false
+    console.log(req.body)
+  }
 })
 
 // DELETE ROUTE -- FOR DELETING CARDS DURING TESTING
