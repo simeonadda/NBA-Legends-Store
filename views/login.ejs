@@ -1,8 +1,43 @@
-<%- include('./partials/header.ejs') %>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <title>NBA Legends Store</title>
+  </head>
+  <body class="bg-warning text-dark">
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+              <!-- <ul class="bg-dark border-light mb-3 text-white nav list-unstyled justify-content-end">
+                  <li><a class="btn btn-warning" href="/users/new">Sign Up</a></li>
+                  <li><a class="btn btn-warning" href="/login">Log In</a></li>
+              </ul> -->
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <!-- <a href="/players" class="navbar-brand d-flex align-items-center">
+            <img class="float-left" width="35" height="35" src="https://cdn2.iconfinder.com/data/icons/activity-5/50/1F3C0-basketball-512.png" alt="basketball">
+            <strong>Legends</strong>
+          </a> -->
+          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <span class="navbar-toggler-icon"></span> -->
+          </button> -->
+        </div>
+      </div>
+    </header>
 <br><br>
+<section class="jumbotron bg-warning">
 <div class="container">
   <div class="row justify-content-around">
-    <div class="col-6 border border-secondary bg-warning"><br>
+    <div class="col-6 border border-secondary bg-light"><br>
       <h3 class="text-center">Sign In</h3>
       <form class="px-4 py-3" action="/sessions" method="POST">
         <div class="form-group">
@@ -19,7 +54,7 @@
             Remember me
           </label>
         </div><br>
-        <button type="submit" class="btn btn-dark">Sign in</button>
+        <button type="submit" class="btn btn-primary">Sign in</button>
       </form>
       <div class="dropdown-divider text-secondary"></div>
       <a class="dropdown-item" href="/users/new">New here? Sign up</a>
@@ -27,5 +62,5 @@
     </div>
   </div>
 </div>
-
+</section>
 <%- include('./partials/footer.ejs') %>

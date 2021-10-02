@@ -1,11 +1,48 @@
-<%- include('./partials/header.ejs') %>
-<br>
-  <div class="container">
-    <div class="row justify-content-around">
-      <h1>Home Page</h1>
-    </div>
-    <h3><a href="/login">Sign In Here</a></h3>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <title>NBA Legends Store</title>
+  </head>
+  <body class="bg-dark text-dark">
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+              <!-- <ul class="bg-dark border-light mb-3 text-white nav list-unstyled justify-content-end">
+                  <li><a class="btn btn-warning" href="/users/new">Sign Up</a></li>
+                  <li><a class="btn btn-warning" href="/login">Log In</a></li>
+              </ul> -->
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <!-- <a href="/players" class="navbar-brand d-flex align-items-center">
+            <img class="float-left" width="35" height="35" src="https://cdn2.iconfinder.com/data/icons/activity-5/50/1F3C0-basketball-512.png" alt="basketball">
+            <strong>Legends</strong>
+          </a> -->
+          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <span class="navbar-toggler-icon"></span> -->
+          </button> -->
+        </div>
+      </div>
+    </header>
+<section class="jumbotron text-center bg-warning">
+  <div class="container bg-image" style="background-image: url('https://i.pinimg.com/originals/b1/12/50/b1125059a947f10e298dc458c88ee97f.gif'); height: 75vh;"><br><br><br><br><br><br><br><br><br><br><br>
+    <h1><span class="badge bg-light text-dark">NBA Legends Store</span></h1>
+    <a class="fs-1 btn btn-light" href="/login">Sign In</a>
+    <a class="fs-1 btn btn-light" href="/users/new">Sign Up</a>
   </div>
+</section>
 
-
-<%- include('./partials/footer.ejs') %>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

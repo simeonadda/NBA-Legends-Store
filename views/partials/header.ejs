@@ -9,30 +9,30 @@
 
     <title>NBA Legends Store</title>
   </head>
-  <body class="bg-primary text-dark">
+  <body class="bg-warning text-dark">
     <header>
       <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
               <h4 class="text-white">About</h4>
-              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+              <p class="text-muted">This is a place to enjoy the NBA players of yesteryear. If you hate flopping, enjoy the handcheck and think that Craig Elo would was the best option to guard Jordan, this is the place for you.</p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
-              <ul class="bg-dark border-light mb-3 text-white navbar nav-fill list-unstyled">
+              <ul class="bg-dark border-light mb-3 text-white navbar nav-fill list-unstyled justify-content-around">
                 <% if (currentUser) { %>
+                  <li class="text-light">Hi <%= currentUser.username %></li>
+                  <li>
                   <li><a class="text-warning" href="/players">Home</a></li>
                   <li><a class="text-warning" href="/players/faves">Favorites</a></li>
                   <li><a class="text-warning" href="/players/new">Buy</a></li>
-                  <li>Hi <%= currentUser.username %></li>
-                  <li>
                     <form action="/sessions?_method=DELETE" method="POST">
-                      <input type="submit" value="Log Out"/>
+                      <input class="btn btn-warning" type="submit" value="Log Out"/>
                     </form>
                   </li>
                   <% } else { %>
-                  <li><a class="text-white" href="/users/new">Sign Up</a></li>
-                  <li><a class="text-white" href="/login">Log In</a></li>
+                  <li><a class="btn btn-light" href="/users/new">Sign Up</a></li>
+                  <li><a class="btn btn-light" href="/login">Log In</a></li>
                   <% } %>
               </ul>
             </div>

@@ -1,7 +1,7 @@
 <%- include('./partials/header.ejs') %>
-<section class="jumbotron text-center">
+<section class="jumbotron text-center bg-light">
   <div class="container">
-    <h1 class="jumbotron-heading">Welcome, Welcome <%= currentUser.username %>!</h1>
+    <h1 class="jumbotron-heading">Welcome, <%= currentUser.username %>!</h1>
     <p class="lead text-muted">This is your player card page. All the cards in your collection are available below.</p>
     <p>
       <a class="btn btn-danger my-2" href="/players/faves">View Favorites</a>
@@ -15,7 +15,7 @@
       <div class="">
         <div class="card-deck">
           <% players.forEach((player) => { %>
-          <div class="card bg-white border-warning mb-3" style="min-width: 18rem">
+          <div class="card bg-white border-danger mb-3" style="min-width: 18rem">
             <img class="card-img-top bg-dark" style="" src="https://www.freepnglogos.com/uploads/nba-logo-png/nba-debate-club-milken-hottest-new-club-the-roar-25.png" alt="">
             <div class="card-body">
               <h5 class="card-title">
