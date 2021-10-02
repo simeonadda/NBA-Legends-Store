@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
 require('dotenv').config()
-const PORT = 3000
+const PORT = process.env.PORT || 3000;
 
 // MODELS
 const Player = require('./models/player')
